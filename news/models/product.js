@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
   name: String,
+  RFID:String,
   category: String,
-  price: Number,
+  waterlevel: Number,
   tags: [String]
 },{ timestamps: true, versionKey: false });
 

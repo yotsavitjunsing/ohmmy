@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const Product = require('./models/product');
 const mqtt = require("mqtt");
-const client = mqtt.connect("mqtt://mqtt");
+const client = mqtt.connect("mqtt://10.240.48.43");
 
 client.on("connect", () => {
   console.log(`Connected successfuly`);
@@ -15,11 +15,12 @@ client.on("connect", () => {
 });
 
 client.on("message", (topic, message) => {
+
   const msg = message.toString();
   console.log(`Your topic: ${topic}, msg: ${msg}`);
 });
 
-mongoose.connect("mongodb://mongo:27017/node-api-101", {
+mongoose.connect("mongodb://10.240.48.43:27017/node-api-101", {
     authSource: "admin",
     user: "root",
     pass: "example",
